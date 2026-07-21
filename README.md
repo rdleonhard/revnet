@@ -1,5 +1,5 @@
 # revnet
-This repo is meant as a dumping ground for my personal reflections on revnets. What immediately follows are some sample projects I'm working on to showcase variations of revnet designs. *Do not under any circumstances consider this document as giving legal advice and/or approval.*
+This repo is meant as a dumping ground for my personal reflections on revnets. What immediately follows are some sample projects I'm working on to showcase variations of revnet designs. *Do not under any circumstances consider this document as giving legal advice and/or attorney approval.*
 
 # PROJECT 1
 # $WAKE — an "opt-out" revnet
