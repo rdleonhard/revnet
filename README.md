@@ -2,7 +2,7 @@
 This repo is meant as a dumping ground for my personal reflections on revnets. What immediately follows are some sample projects I'm working on to showcase variations of revnet designs.
 
 # PROJECT 1
-# $WAKE — a revnet case study
+# $WAKE — an "opt-out" revnet
 
 *What do you sell when the product must outlive the seller?*
 
@@ -111,7 +111,7 @@ revnet configs are forever, and we intend to mean it.*
 
 
 # PROJECT 2
-# $CITE — the citation-verification revnet
+# $CITE — the centralized company revnet
 
 *Open Esquire as a revenue network. A concept sketch for the revnet
 community: the machine already runs on Base mainnet; this is what it looks
