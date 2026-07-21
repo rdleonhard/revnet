@@ -250,3 +250,174 @@ agents.
 Sister design: the $WAKE revnet (Testament Network), where the
 updater-gauge router pattern is developed in full.*
 
+# PROJECT 3
+# $SERF — *The Developer Who Built His Own Boss / AI & Token Holders Determine if Dev Gets the Split*
+
+---
+
+## The one-line pitch
+
+An open-source developer needs **$5,000 in frontier-model credits** to build his idea. Instead of a grant application or a VC, he deploys a revnet, points the reward split at himself, publishes a **sworn schedule**, and then does the strange part: he hires an **AI agent to be his boss**. The agent holds him to the schedule, files progress reports to token holders, and delivers performance reviews. Token holders don't manage the developer directly — they **lobby the boss**. $SERF is a company where the worker funds the company, the machine runs the worker, and the crowd runs the machine.
+
+The name is the joke and the thesis: he is the serf, and he built the lord (Jango hates this idea, btw, lol).
+
+---
+## Why this variation exists
+
+Every prior revnet we've designed pointed the reward split at *a thing being produced* — a docket, a testament, a citation oracle. $SERF points the split at **a person's labor**, and inserts an autonomous manager between the labor and the capital. It's the first of our designs where:
+
+- the **beneficiary and the worker are the same wallet** (no principal-agent gap on the money), and
+- the **agent's authority is a governable parameter**, not fixed code.
+
+That combination is the whole experiment: *what happens to accountability when the boss is a smart contract's favorite LLM, tunable by the people who paid for the work?*
+
+---
+
+## Cast of characters
+
+| Role | Who | What they can do |
+|---|---|---|
+| **The Serf** | The open-source dev (`serf.eth`) | Ships code, receives the split, submits evidence to the boss. Cannot edit his own reviews. |
+| **The Boss** | An LLM agent (`overseer.eth`, funded from a tiny slice of the revnet) | Runs the recurring check-in, compares reality to the schedule, writes reports and reviews, sets the *next* milestone. |
+| **The Court** | $SERF holders | Fund the treasury; vote on **directives** that steer the Boss (not the Serf). |
+| **The Ledger** | The revnet + a public "Chronicle" feed | Immutable record of pledges, schedule, reports, reviews, and votes. |
+
+---
+
+## The revnet mechanics (the familiar spine)
+
+Standard revnet skeleton, tuned for a single-beneficiary labor grant.
+
+- **Token:** `$SERF`, minted on contribution. Same issuance-with-decay curve as prior designs.
+- **Funding target:** **$5,000** denominated in whatever the model provider bills (call it the *credit-equivalent*). The revnet doesn't hold API keys — it holds ETH/USDC and disburses to the Serf, who buys credits and posts receipts.
+- **The Split:** by default **100% of the reward split → `serf.eth`**, minus a metered trickle to `overseer.eth` to pay for the Boss's own inference (the boss's salary is a rounding error, and pointedly so).
+- **Issuance decay & redemption:** unchanged from the base revnet — early backers get a better mint rate; the cash-out tax rewards holders who stay through the schedule rather than dumping after the first good report.
+- **No new tokenomics invention here.** The novelty is entirely in the *governance surface*, section 6.
+
+**Design note:** the Serf gets paid on a **drip tied to milestones**, not a lump sum. The revnet holds the $5k; the Boss's report unlocks each tranche. Money and judgment are welded together — this is what makes the Boss more than theater.
+
+---
+
+## The Sworn Schedule
+
+At deploy time the Serf commits an on-chain (or content-addressed + hash-anchored) **Schedule** — his own performance contract. Example for a 6-week, $5k build:
+
+| Milestone | Due | Tranche | Evidence the Boss expects |
+|---|---|---|---|
+| M0 — Repo + spec + first commit | Day 3 | $250 | public repo, SPEC.md, green CI |
+| M1 — Core loop working | Week 2 | $1,000 | demo video/log, passing e2e test |
+| M2 — Feature-complete alpha | Week 4 | $1,750 | tagged release, changelog |
+| M3 — Docs + one real user | Week 5 | $1,000 | user testimonial, install works clean |
+| M4 — 1.0 ship | Week 6 | $1,000 | release, retro, credit receipts reconciled |
+
+The schedule is **the contract the Boss enforces**. The Serf wrote his own rope. Changing it after deploy requires a Court vote (section 6) — he can't quietly move his own deadlines.
+
+---
+
+## The Boss — recurring task spec
+
+The Boss is a scheduled agent. Its job description is public and versioned.
+
+**Cadence:** runs every N days (default 3; Court-tunable). On each run:
+
+1. **Gather** — pull the repo (commits, CI, releases, issues closed), the Serf's submitted evidence, and the credit-spend receipts.
+2. **Compare** — measure observed progress against the Schedule. Compute a simple state per milestone: `ahead | on-track | slipping | breached`.
+3. **Report** — write a **Progress Report** to the Chronicle: what shipped, what's late, burn rate of the $5k vs. work delivered.
+4. **Judge** — at milestone boundaries, issue a **Performance Review** with a grade and a release/withhold/partial decision on the tranche.
+5. **Steer** — propose the **Next Objective**: given progress + standing Court directives, what should the Serf do next. This is where holder lobbying lands.
+
+**Tone knobs** (governable): `supportive ↔ demanding`, report `verbosity`, review `strictness`. The same underlying facts can be delivered as a gentle mentor or a merciless VP of Engineering — and the Court decides which.
+
+**Hard rails (not governable):**
+
+- The Boss cannot invent evidence; every claim in a report must cite a fetched artifact.
+- The Boss cannot release a tranche whose evidence it couldn't verify.
+- The Boss cannot alter the Schedule — only the Court can.
+- The Serf cannot edit, delete, or pre-approve a report. He can **respond** (an appended rebuttal), nothing more.
+
+---
+
+## The governance surface — *lobbying the boss*
+
+This is the heart of the variation. Holders **never command the Serf**. They **persuade the Boss.** Voting weight = $SERF held.
+
+Directive types the Court can pass:
+
+**A. Steering directives (where to go next)**
+> "Prioritize the plugin API over the GUI." / "Stop gold-plating M2 — ship and move on." / "Add a security review milestone before 1.0."
+
+The Boss folds passed directives into its **Next Objective** and weights them in future reviews.
+
+**B. Cadence & intensity directives (how the boss behaves)**
+> "Report weekly, not every 3 days." / "Turn strictness up — he's coasting." / "Ease off; he shipped M1 early, give him room."
+
+**C. Schedule amendments (the only lever that touches the contract)**
+> "Extend M3 by 4 days — the real user found a real bug." / "Cut M3 entirely, fold into M4."
+
+Highest quorum of all directive types, because this moves the Serf's own goalposts.
+
+**D. The Vote of No Confidence (the endgame lever)**
+If the Court loses faith, a supermajority can instruct the Boss to **freeze remaining tranches** and open **redemption** — holders cash out the unspent treasury at the revnet's redemption rate. The Serf keeps what he earned to date; the crowd recovers the rest. No lawsuit, no clawback drama — the schedule and the ledger already agreed on the math.
+
+**Directive log** is public and permanent. So is every directive the Court *rejected* — you can read the pressure the Serf worked under.
+
+---
+
+## The loop, in one picture
+
+```
+   $SERF holders (The Court)
+        │  directives (steer / cadence / amend / no-confidence)
+        ▼
+   Overseer LLM (The Boss) ──every 3 days──▶ Progress Report
+        │  compares repo+receipts to Sworn Schedule        │
+        │  Performance Review + tranche decision           ▼
+        ▼                                              The Chronicle
+   release / withhold / partial                     (public feed)
+        │                                                  ▲
+        ▼                                                  │ rebuttal
+   revnet treasury ──drip──▶ serf.eth ──▶ buys LLM credits ─┘
+        │                                                  │
+        └───────── ships code ◀── The Serf ───────────────┘
+```
+
+The worker funds the firm (via the revnet backers), the machine grades the worker, the crowd tunes the machine. A closed accountability loop with no human boss anywhere in it.
+
+---
+
+## What each party is actually buying
+
+- **The Serf** buys *credibility-as-a-service*. "I don't just promise to ship — I hired an incorruptible manager to prove I did, and you can turn the screws on it yourself." That's a stronger fundraising pitch than a roadmap nobody can enforce.
+- **A backer** buys *governed exposure to one dev's labor* — with a real off-ramp (no-confidence + redemption) that a Kickstarter pledge never had.
+- **The public** gets an *open, adversarial audit trail* of an open-source build: the schedule, the slippage, the excuses, the reviews, all in one feed.
+
+---
+
+## The philosophical payload (the reason it's fun)
+
+$SERF inverts the org chart into a ring. Traditional firm: capital → boss → worker → product. Here: **worker → capital → boss → worker**, with the crowd editing the boss's personality in real time. The developer's radical move is *voluntarily building his own overseer and handing its dials to strangers* — betting that visible, tunable, incorruptible supervision is worth more to backers than his unwatched promise. It limits the chaotic, aggressive and insistent DAO participants to a comment box, although one that's actually read and seriously considered.
+
+The unresolved, interesting questions — which is exactly what makes it worth simulating:
+
+- **Does an LLM boss stay honest under lobbying pressure**, or does a well-funded faction "capture" it via directive spam until reviews go soft? (Rails in §5 are the defense; whether they hold is the experiment.)
+- **Is a self-imposed AI boss motivating or corrosive?** The Serf can never blame management — he *is* management's author.
+- **Where's the line between "steering" and "abuse"?** A Court that cranks strictness to max and cadence to daily is technically within the rules and functionally running a sweatshop-of-one. Does the labor market (Serfs choosing which Courts to work for) price that in?
+
+---
+
+## Minimal build path (if we ever wire it up)
+
+Reusing our existing rails so this isn't a from-scratch lift:
+
+1. **Revnet + token** — same deploy pattern as the Base-mainnet contracts in the prior sessions; single split beneficiary + metered overseer sub-split.
+2. **Schedule** — a signed JSON manifest, hash-anchored on-chain, human-readable in the Chronicle.
+3. **The Boss** — a scheduled agent (the same cron-agent shape we've used before): fetch repo + receipts, diff against Schedule, write Report/Review, call the tranche-release function.
+4. **The Chronicle** — a GitHub Pages ledger (exactly the `publish.sh` device→repo pattern from the docket work) rendering reports, reviews, votes, and rebuttals.
+5. **Governance** — directive contract with the four vote types + quorum thresholds; the Boss reads passed directives as part of its context each run.
+
+The only genuinely new component versus everything we've already built is the **directive-weighted context injection** into the Boss's recurring run. Everything else — revnet, cron-agent, GitHub-Pages ledger — we've shipped variants of already.
+
+---
+
+*$SERF: the first company where you can vote on the temperament of the boss, and the worker wrote the boss's job description before he wrote his own.*
+
