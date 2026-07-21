@@ -1,5 +1,5 @@
 # revnet
-This repo is meant as a dumping ground for my personal reflections on revnets. What immediately follows are some sample projects I'm working on to showcase variations of revnet designs.
+This repo is meant as a dumping ground for my personal reflections on revnets. What immediately follows are some sample projects I'm working on to showcase variations of revnet designs. *Do not under any circumstances consider this document as giving legal advice and/or approval.*
 
 # PROJECT 1
 # $WAKE — an "opt-out" revnet
@@ -421,3 +421,164 @@ The only genuinely new component versus everything we've already built is the **
 
 *$SERF: the first company where you can vote on the temperament of the boss, and the worker wrote the boss's job description before he wrote his own.*
 
+# PROJECT 4
+# $HARD — *Tokenized Revenue for a Tennessee Construction Company*
+
+---
+
+## The one-line pitch
+
+A construction company in Tennessee — call it **Hardin & Sons Construction, LLC** — needs working capital: equipment, a bigger crew, materials to bid larger jobs. Instead of a bank line or a mezzanine lender, it deploys a revnet, sells **$HARD** tokens for cash up front, and signs a **binding Buyback Covenant**: on a fixed date each year, the company will spend **a set percentage of its audited profit** buying $HARD back from holders at a formula price. Backers aren't buying a promise of dividends — they're buying a **contractual, dated repurchase funded by real revenue.** The company gets capital today; holders get a claim on tomorrow's profit with a calendar attached.
+
+The name works on three levels: hard hats, hard work, and *hard money* — the old real-estate term for asset-backed, real-cashflow financing. That's exactly what this is, wrapped in a token.
+
+---
+
+## Why this variation exists
+
+Every prior revnet redeemed against **its own treasury** — the pool of contributions that came in through the front door. $HARD is the first where redemption is funded by an **external, real-world cashflow**: the construction company's actual profit, earned off-chain, on job sites in Tennessee. It's the first of our designs where:
+
+- the **redemption source is business revenue, not the contribution pool**, and
+- the buyback is a **dated, binding contract** — a forward purchase obligation — not a "hold and hope the token appreciates" bet.
+
+That combination is the whole experiment: *can a revnet act as a revenue-share instrument for a real operating business — an equipment-financing round wearing a token — with the repurchase mechanically welded to audited profit and a hard date?*
+
+---
+
+## Cast of characters
+
+| Role | Who | What they can do |
+|---|---|---|
+| **The Company** | Hardin & Sons Construction, LLC (`hardin.eth`) | Receives raised capital, runs the business, funds the annual buyback out of profit, publishes audited numbers. |
+| **The Holders** | $HARD token holders | Provide up-front capital; get repurchased on the covenant date; vote on a narrow set of parameters. |
+| **The Auditor** | An independent CPA firm (off-chain) + attestation signer | Produces the audited profit figure that drives the buyback math. The single source of the number. |
+| **The Oracle** | Attestation bridge (`oracle.eth`) | Posts the auditor's signed profit figure on-chain so the Buyback Covenant can execute against it. |
+| **The Ledger** | The revnet + a public "Site Log" feed | Immutable record of the raise, the covenant terms, each year's profit attestation, and every buyback executed. |
+
+---
+
+## The revnet mechanics (the familiar spine)
+
+Standard revnet skeleton, tuned to behave as a **revenue-share note** rather than a treasury-backed token.
+
+- **Token:** `$HARD`, minted on contribution. Same issuance-with-decay curve as prior designs — early backers (who take the most execution risk) mint at a better rate.
+- **Raise target:** a real number for a real balance sheet — say **$250,000** to buy a used excavator, a dump truck, and float 90 days of a bigger crew's payroll.
+- **The Split:** **100% of contributions → `hardin.eth`** (the operating account). Unlike a normal revnet, the money is *meant* to leave the contract and go to work as capital equipment — that's the point. A metered trickle funds `oracle.eth`'s attestation gas.
+- **Redemption is NOT from a treasury.** The contract holds little or no reserve. Holders are made whole through the **annual Buyback Covenant** (section 4), funded by profit. This is the defining departure from every prior design.
+- **Issuance decay & cash-out tax:** unchanged from base revnet — rewards holders who stay to the covenant dates over those who try to flip on secondary before the first buyback.
+
+**Design note:** because there's no fat treasury to redeem against, the token's floor isn't "unspent contributions" — it's "the enforceable right to be bought back out of profit on a date." The instrument's value lives in the covenant, section 4, and the honesty of the number, section 5.
+
+---
+
+## The Buyback Covenant — *the core mechanic*
+
+At deploy the Company signs a binding, on-chain-anchored **Buyback Covenant**. It has four terms:
+
+1. **The Date** — a fixed annual **True-Up Date** (e.g., **March 31**, after the prior fiscal year's books close and are audited).
+2. **The Percentage** — a committed share of audited profit, e.g., **25% of annual net profit**, earmarked for repurchase.
+3. **The Price** — the formula that sets what the Company pays per token on that date (a floor price + a profit-linked component; see below).
+4. **The Term** — how many True-Up Dates the covenant runs (e.g., **5 years**), after which any remaining obligation either balloons (full repurchase) or converts.
+
+**Worked example**
+
+- Raise: **$250,000** → mints, say, **250,000 $HARD** (1:1 at the opening rate, decaying thereafter).
+- Covenant: **25% of audited net profit**, every **March 31**, for **5 years**.
+- Year 1 audited net profit: **$180,000** → buyback pool = **$45,000**.
+- On March 31, the contract uses that $45,000 to repurchase $HARD at the covenant price (say $1.10 as it steps up over the term). ~40,900 tokens retired and burned.
+- Repeat annually. Strong years retire the obligation faster; lean years buy back less. A zero-profit year triggers a disclosed **$0 buyback** — not a default, but a logged event holders can see coming.
+
+**Key property:** the buyback is **profit-proportional and dated**, exactly as specified — the Company never owes cash it didn't earn, and holders always know *when* the next repurchase lands and *what number drives it*. It's a revenue share with a calendar, not a debt with a fixed coupon that can bankrupt a contractor in a bad year.
+
+**Priority & protection:** the covenant sits **senior to owner distributions** — Hardin can't pay himself a profit draw in a year he skips the buyback. That subordination is the holder's real protection, and it's written into both the LLC operating agreement and the on-chain terms so the two can't diverge.
+
+---
+
+## The Profit Oracle — *turning job-site cash into an on-chain number*
+
+The whole instrument rests on one figure: **audited net profit**. Getting that number honestly on-chain is the hard part (and the part most "tokenized revenue" schemes wave away).
+
+**The chain of trust, each year:**
+
+1. **Books close** — the Company's accounting closes the fiscal year.
+2. **Independent audit** — an outside CPA firm audits and issues net profit. Real signature, real professional liability.
+3. **Attestation** — the auditor (or the Company's officer under the audit) **signs the profit figure**; `oracle.eth` posts that signed attestation on-chain with a link to the audit summary in the Site Log.
+4. **Covenant executes** — the Buyback Covenant reads the attested figure, computes `percentage × profit`, and runs the repurchase on the True-Up Date.
+
+**Hard rails (not governable):**
+
+- The buyback amount is **whatever the attested audit says × the fixed percentage** — the Company cannot hand-pick the number to shrink its obligation.
+- No attestation posted by the deadline → the covenant treats it as a **breach event** (section 6's endgame lever arms), not a silent skip.
+- The auditor is independent and disclosed; replacing the auditor mid-term requires a holder vote.
+- Owner distributions are contractually blocked until the year's covenant is satisfied or a $0-profit attestation is on record.
+
+**The honest caveat, stated plainly:** this design reduces trust to *"do you trust the CPA's signature?"* — the same trust every small-business lender already relies on. It does **not** magically make off-chain profit trustless. What it adds over a handshake revenue-share is that the terms, the dates, the percentage, and every historical payout are **public, immutable, and mechanically enforced** once the number is in.
+
+---
+
+## The governance surface — *narrow by design*
+
+$HARD holders are **investors, not managers.** They don't run the jobsite and they don't vote on which bids to take — that way lies a general contractor answering to a committee, which is how projects die. The vote surface is deliberately small:
+
+**A. Auditor approval / replacement** — holders can veto a proposed change of CPA firm. Protects the one number that matters.
+
+**B. Covenant amendment (tightly bounded)** — e.g., "roll unrepurchased Year-2 obligation forward with a step-up" or "extend the term one year in exchange for a higher percentage." High quorum; can only move terms in holder-protective or mutually-agreed directions, never let the Company unilaterally cut the percentage.
+
+**C. Reinvestment waiver** — in a boom year, the Company can *ask* holders to let it retain part of the buyback pool to fund a big equipment purchase (growing future profit) in exchange for a sweetener — a bump to the covenant percentage or price next year. Holders vote yes/no. This is the constructive pressure valve: align on growth instead of forcing a repurchase that starves a good opportunity.
+
+**D. The Breach / Acceleration lever (endgame)** — a missed attestation, a blocked audit, or a skipped buyback despite attested profit arms a supermajority vote to **accelerate**: the full remaining obligation comes due, secured against the financed equipment per the operating agreement. This is the holder's teeth — the on-chain analog of a lender's default clause.
+
+**Site Log** is public and permanent: the raise, the covenant, every annual audit attestation, every buyback (amount, price, tokens burned), every vote, every reinvestment waiver. A backer can reconstruct the company's five-year profit-share history from the chain alone.
+
+---
+
+## The loop, in one picture
+
+```
+   $HARD holders (capital in, up front)
+        │  $250k contribution ──▶ mint $HARD
+        ▼
+   revnet ──100% split──▶ hardin.eth (operating account)
+        │                        │
+        │                        ▼
+        │                 buys excavator, truck, crew ──▶ bids bigger jobs
+        │                        │
+        │                        ▼
+        │                   annual PROFIT (off-chain)
+        │                        │
+        │                        ▼
+        │        Independent CPA audit ──sign──▶ oracle.eth (on-chain attestation)
+        │                        │
+        ▼                        ▼
+   repurchased & burned ◀── Buyback Covenant: 25% × profit, every Mar 31, 5 yrs
+        ▲                        │
+        └──────── Site Log (public: raise, audits, buybacks, votes) ────────┘
+```
+
+Capital flows in once and goes to work as steel and payroll; profit flows back out on a schedule, proportioned to what the business actually earned, verified by a signature holders can name.
+
+---
+
+## What each party is actually buying
+
+- **The Company** buys *patient, profit-linked capital* with no fixed monthly debt service that a slow quarter could turn into insolvency. It pays when it profits, on a date it set. Cheaper stress than a bank note, and it keeps 100% ownership — this is financing, not equity dilution.
+- **A holder** buys *a dated, audited claim on a real Tennessee contractor's profit* — a revenue-share note with a public payout history and default teeth, tradable on secondary before the covenant dates if they want liquidity.
+- **The public / local backers** get *a way to invest in a Main Street business they can literally drive past* — the excavator their money bought is parked at a jobsite, and the profit share is on-chain for anyone to audit.
+
+---
+
+## Minimal build path (if we ever wire it up)
+
+Reusing our existing rails where they fit, and being honest about the new legal lift:
+
+1. **Revnet + token** — same Base-mainnet deploy pattern as prior sessions; 100% split to the operating wallet, minimal reserve.
+2. **Buyback Covenant contract** — the genuinely new on-chain piece: holds the covenant terms (date, percentage, price formula, term), reads the profit attestation, executes the dated repurchase-and-burn. Subordination flag enforced.
+3. **Profit Oracle** — an attestation bridge (same cron-agent + signed-payload shape we've used before): each year, ingest the auditor's signed net-profit figure and post it on-chain by the deadline; arm the breach event if it's missing.
+4. **The Site Log** — a GitHub Pages ledger (the `publish.sh` device→repo pattern from the docket work) rendering the raise, covenant, annual audits, every buyback, and every vote.
+5. **The legal wrapper** — the part with no on-chain shortcut: TN securities counsel, exemption filing (Reg CF / 506(c)), operating-agreement amendments mirroring the covenant, and an engaged independent CPA. This is the critical path, not the smart contract.
+
+The only new *code* versus everything we've built is the **profit-attested Buyback Covenant**. The new *work* is section 9 — and on this one, that work comes first.
+
+---
+
+*$HARD: a Tennessee contractor's profit share, on a date you can circle, verified by a signature you can name, enforced by code that can't be talked out of it.*
