@@ -1,6 +1,8 @@
 # OUTLINE — *Revnet in Venice* (working title)
 
-**Status:** FULL DRAFT COMPLETE — Preface + 17 chapters + interlude drafted across all 5 parts (`chapters/00`–`18`). Every chapter is at `status: draft`; none promoted to `final` yet (pending the to-verify register in Appendix D, a voice/title lock, and the $WAKE / $CITE source notes). Two open decisions still flagged: author voice ("I" vs "we") and final title.
+**Status:** FULL DRAFT COMPLETE — Preface + 17 chapters + interlude drafted across all 5 parts (`chapters/00`–`18`). Every chapter is at `status: draft`; none promoted to `final` yet.
+**DECISIONS LOCKED 2026-07-27:** voice = first-person plural **"we"** + reader "you"; title = **"Revnet in Venice: How Founders Will Raise Compute, Not Capital"**.
+**Remaining before `final`:** (1) mechanical **I→we voice sweep** of chapters 01–18 (Preface already converted) — replace "I'll/I'm/let me/me" authorial instances with we/us/let's, leaving in-scene "I" (e.g. the sample holder quote) alone; (2) the Venice to-verify register (Ch 6/13 figures); (3) the $WAKE live-vs-designed inventory and $CITE source-thinness note.
 **Thesis (locked):** seed capital is changing substrate — in the AI age the scarce input is
 compute/inference, not money; the new founder is a solo open-source dev with an idea and an
 API bill; revnets (culminating in the productive-reserve / Venice model) are the honest,
