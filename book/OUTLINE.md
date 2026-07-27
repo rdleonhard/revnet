@@ -52,6 +52,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Open questions:** Do you want a real-named practitioner anecdote here, or keep it archetypal?
 
 ### Chapter 2 — Why money was the bottleneck, and inference is the new one
+- **Status:** draft written → [`chapters/02-money-was-the-bottleneck.md`](chapters/02-money-was-the-bottleneck.md)
 - **Purpose:** Make the substrate-shift argument rigorously — money was scarce because it
   bought scarce labor; AI collapses the labor cost, and the residual scarcity migrates to
   compute/inference.
@@ -65,6 +66,7 @@ repeatable mechanism for raising compute instead of capital.
   for verification rather than inventing numbers.
 
 ### Chapter 3 — A revnet in one breath
+- **Status:** draft written → [`chapters/03-a-revnet-in-one-breath.md`](chapters/03-a-revnet-in-one-breath.md)
 - **Purpose:** The primer. A reader who has never touched a token should finish this chapter
   able to explain a revnet to a friend: staged issuance, cash-out floor, no governance.
 - **Key points:** (1) mint-on-contribution + issuance decay (early believers buy cheapest by
