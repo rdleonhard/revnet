@@ -140,6 +140,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Target:** ~2,600 words. Desk-map ASCII.
 
 ### Chapter 8 — $SERF: building your own boss to raise your own runway
+- **Status:** draft written (file 09, post-interlude offset) → [`chapters/09-serf-building-your-own-boss.md`](chapters/09-serf-building-your-own-boss.md)
 - **Purpose:** The purest dramatization of "raise inference, not money" — a dev funds LLM
   credits via a revnet and hires an AI boss to hold himself accountable to token holders.
 - **Key points:** (1) the sworn schedule as a self-imposed contract; (2) the split pointed at
@@ -152,6 +153,7 @@ repeatable mechanism for raising compute instead of capital.
   then the Diem-native version as the upgrade.)
 
 ### Chapter 9 — $HARD: when the revenue is real
+- **Status:** draft written (file 10) → [`chapters/10-hard-when-the-revenue-is-real.md`](chapters/10-hard-when-the-revenue-is-real.md)
 - **Purpose:** Extend the model from a pre-revenue dev to a real operating business, and
   confront the hard part — getting off-chain profit honestly on-chain.
 - **Key points:** (1) the Buyback Covenant (dated repurchase from % of audited profit); (2) the
