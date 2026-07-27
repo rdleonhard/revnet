@@ -131,6 +131,14 @@ repeatable mechanism for raising compute instead of capital.
 
 ## PART III — Case Studies (from the repo)
 
+> **Reflow note:** an **Interlude — A Day in the $SERF World** was written as `chapters/08-interlude-a-day-in-the-serf-world.md` to open Part III with a concrete, device-grounded scene before the analysis. The analytical case studies below therefore shift by one in file numbering (the $SERF case study becomes file 09, $HARD 10, etc.); titles/positions unchanged. Interlude uses the author's LIVE hardware (pager, focus deck, AxiDraw, XIAO Sense cam) inside the HYPOTHETICAL $SERF revnet.
+
+### Interlude — A Day in the $SERF World
+- **Status:** draft written → [`chapters/08-interlude-a-day-in-the-serf-world.md`](chapters/08-interlude-a-day-in-the-serf-world.md)
+- **Purpose:** Show, not tell — a present-tense day on a real desk where the schedule is plotted in ink (AxiDraw), lit on `focus.local` (Focus Deck), the room's focus is read as a discarded-after gist (XIAO Sense cam), holder comments land transparently (LilyGo pager), and SERF reports the pivot-vs-ghost distinction to holders.
+- **Draws on:** $SERF [HYPOTHETICAL] + author's LIVE hardware constellation.
+- **Target:** ~2,600 words. Desk-map ASCII.
+
 ### Chapter 8 — $SERF: building your own boss to raise your own runway
 - **Purpose:** The purest dramatization of "raise inference, not money" — a dev funds LLM
   credits via a revnet and hires an AI boss to hold himself accountable to token holders.
