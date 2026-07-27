@@ -4,6 +4,8 @@ This repo is meant as a dumping ground for my personal reflections on revnets. W
 **Proposals** (protocol-level, separate docs):
 - [Revnet in Venice](revnet-in-venice.md) — productive reserves: stake VVV as the treasury so it earns its keep; emission yield funds the split, Diem funds development, holders keep a redeemable VVV claim.
 
+**Book** (in progress): [`book/`](book/) — turning these reflections into a book on why revnets are the future of seed capital in the age of AI, where founders raise *compute and inference* instead of money. Start with the [outline](book/OUTLINE.md); authoring brief in [`book/AUTHORING-PROMPT.md`](book/AUTHORING-PROMPT.md).
+
 # PROJECT 1
 # $WAKE — an "opt-out" revnet
 
