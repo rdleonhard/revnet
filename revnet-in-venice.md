@@ -6,7 +6,7 @@
 
 ## 0. Summary (TL;DR)
 
-Today a revnet holds its reserve in **ETH or USDC**. That reserve just *sits there* — it backs the token's redemption value but earns nothing. It is dead capital with a real opportunity cost.
+Today a revnet holds its reserve in **ETH or USDC**. That reserve just *sits there* — it backs the token's redemption value but earns nothing. It is a real opportunity cost.
 
 **Proposal:** make the reserve **VVV (Venice's token), staked.** Staked VVV is *productive* — it throws off two distinct yields:
 
