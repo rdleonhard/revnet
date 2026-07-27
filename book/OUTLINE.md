@@ -83,6 +83,7 @@ repeatable mechanism for raising compute instead of capital.
 ## PART II — The Mechanics
 
 ### Chapter 4 — Staged issuance, the floor, and no governance
+- **Status:** draft written → [`chapters/04-issuance-floor-governance.md`](chapters/04-issuance-floor-governance.md)
 - **Purpose:** Deepen the primer into real mechanism design — why each property is
   incentive-compatible, and what breaks without it.
 - **Key points:** (1) issuance decay as a fair, rules-based cap table; (2) the floor as
@@ -93,6 +94,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Open questions:** None major.
 
 ### Chapter 5 — From inert to productive reserves (the Venice leap)
+- **Status:** draft written → [`chapters/05-inert-to-productive-reserves.md`](chapters/05-inert-to-productive-reserves.md)
 - **Purpose:** The book's turning point — name the flaw in every prior revnet (the reserve
   just sits there) and introduce the fix (make it productive).
 - **Key points:** (1) idle reserve = real opportunity cost; (2) the leap: a reserve that earns;
@@ -103,6 +105,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Open questions:** None.
 
 ### Chapter 6 — Raising inference: staking the treasury, VVV and Diem
+- **Status:** draft written (grounded in Venice's 2026 live docs) → [`chapters/06-raising-inference-vvv-diem.md`](chapters/06-raising-inference-vvv-diem.md)
 - **Purpose:** Concretely explain the productive-reserve machine — staked VVV, emission yield,
   and Diem (inference capacity) — as three separable value streams.
 - **Key points:** (1) principal = holders' redeemable VVV claim; (2) emission yield funds the
@@ -114,6 +117,7 @@ repeatable mechanism for raising compute instead of capital.
   cooldown, Diem accrual/expiry, per-VVV inference dilution. Treat all as assumptions until confirmed.
 
 ### Chapter 7 — The cast: dev, marketer, holders, future buyers, and the AI boss
+- **Status:** draft written → [`chapters/07-the-cast.md`](chapters/07-the-cast.md)
 - **Purpose:** Show that one productive treasury can serve many roles at once, each drawing
   from a different layer — the human story of the mechanism.
 - **Key points:** (1) the dev takes Diem; (2) the marketer takes the split; (3) holders keep a
