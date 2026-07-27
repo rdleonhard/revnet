@@ -165,6 +165,7 @@ repeatable mechanism for raising compute instead of capital.
   chapter on audits?
 
 ### Chapter 10 — $WAKE: issuing a promise longer than the promiser
+- **Status:** draft written (file 11) → [`chapters/11-wake-a-promise-longer-than-the-promiser.md`](chapters/11-wake-a-promise-longer-than-the-promiser.md)
 - **Purpose:** Show the revnet as the only honest issuer for a *forever* product, and use the
   one genuinely live prototype to ground the whole book in something real.
 - **Key points:** (1) the credibility problem of perpetuity businesses; (2) opt-out issuance;
@@ -176,6 +177,7 @@ repeatable mechanism for raising compute instead of capital.
   a precise inventory so the chapter never overclaims.
 
 ### Chapter 11 — $CITE: the centralized company that still chose a revnet
+- **Status:** draft written (file 12) → [`chapters/12-cite-the-centralized-company.md`](chapters/12-cite-the-centralized-company.md)
 - **Purpose:** Break the reflex that revnets are only for crypto-native DAOs — show a normal
   centralized company choosing one, and why.
 - **Key points:** (1) what a centralized issuer gains from immutable rules; (2) how customers/
@@ -187,6 +189,7 @@ repeatable mechanism for raising compute instead of capital.
   first, or the chapter carries more original argument. Flag which.
 
 ### Chapter 12 — Revnet in Venice: the keystone, worked end to end
+- **Status:** draft written (file 13) → [`chapters/13-revnet-in-venice-worked-end-to-end.md`](chapters/13-revnet-in-venice-worked-end-to-end.md)
 - **Purpose:** The spine. Assemble everything into one worked example of a solo dev raising
   compute through a productive-reserve revnet, start to finish, with numbers.
 - **Key points:** (1) the full lifecycle (raise → stake → route yield + Diem → ratchet →
