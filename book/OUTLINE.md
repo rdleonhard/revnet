@@ -1,6 +1,6 @@
 # OUTLINE — *Revnet in Venice* (working title)
 
-**Status:** annotated outline, awaiting sign-off. No chapter prose written yet.
+**Status:** FULL DRAFT COMPLETE — Preface + 17 chapters + interlude drafted across all 5 parts (`chapters/00`–`18`). Every chapter is at `status: draft`; none promoted to `final` yet (pending the to-verify register in Appendix D, a voice/title lock, and the $WAKE / $CITE source notes). Two open decisions still flagged: author voice ("I" vs "we") and final title.
 **Thesis (locked):** seed capital is changing substrate — in the AI age the scarce input is
 compute/inference, not money; the new founder is a solo open-source dev with an idea and an
 API bill; revnets (culminating in the productive-reserve / Venice model) are the honest,
@@ -206,6 +206,7 @@ repeatable mechanism for raising compute instead of capital.
 ## PART IV — Risks, Honestly
 
 ### Chapter 13 — The economic caveats
+- **Status:** draft written (file 14) → [`chapters/14-the-economic-caveats.md`](chapters/14-the-economic-caveats.md)
 - **Purpose:** The honesty chapter that earns the reader's trust — lay out where the model can
   fail economically and how each risk is mitigated.
 - **Key points:** (1) reserve concentration / VVV price risk; (2) yield decay + Diem dilution;
@@ -216,6 +217,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Open questions:** None — source is detailed.
 
 ### Chapter 14 — The security and counterparty surface
+- **Status:** draft written (file 15) → [`chapters/15-security-and-counterparty.md`](chapters/15-security-and-counterparty.md)
 - **Purpose:** Cover the web/smart-contract and dependency risks a builder actually faces.
 - **Key points:** (1) staking-integration attack surface + adapter isolation; (2) oracle
   manipulation and how VVV-unit redemption removes the oracle from the critical path; (3) MEV
@@ -225,6 +227,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Open questions:** Whether to include a short "questions to ask before you deploy" checklist.
 
 ### Chapter 15 — "Isn't this just…?" — the strongest objections, answered
+- **Status:** draft written (file 16) → [`chapters/16-isnt-this-just.md`](chapters/16-isnt-this-just.md)
 - **Purpose:** Directly disarm the reflexive dismissals (ponzi, disguised equity, glorified
   Kickstarter, crypto-for-crypto's-sake) with the book's best arguments.
 - **Key points:** (1) not a ponzi — ops from yield, redemption from external cashflow; (2) not
@@ -239,6 +242,7 @@ repeatable mechanism for raising compute instead of capital.
 ## PART V — The Playbook
 
 ### Chapter 16 — How a solo dev raises compute, step by step
+- **Status:** draft written (file 17) → [`chapters/17-how-a-solo-dev-raises-compute.md`](chapters/17-how-a-solo-dev-raises-compute.md)
 - **Purpose:** Convert the whole argument into an actionable sequence a reader could follow.
 - **Key points:** (1) define the idea + the inference budget; (2) choose the reserve mode
   (inert vs. productive); (3) set issuance, split, and Diem routing; (4) publish the schedule /
@@ -248,6 +252,7 @@ repeatable mechanism for raising compute instead of capital.
 - **Open questions:** Keep tooling-agnostic, or name specific stacks (and risk dating the book)?
 
 ### Chapter 17 — Where this goes next
+- **Status:** draft written (file 18) → [`chapters/18-where-this-goes-next.md`](chapters/18-where-this-goes-next.md)
 - **Purpose:** The closing horizon — multi-provider compute reserves, agent-run treasuries, and
   what "raising compute" becomes when it's normal.
 - **Key points:** (1) beyond a single provider (Venice as v1, not forever); (2) agents as
