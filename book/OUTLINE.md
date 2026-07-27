@@ -23,6 +23,7 @@ repeatable mechanism for raising compute instead of capital.
 ---
 
 ## Chapter 0 — Preface: how to read this book
+- **Status:** draft written → [`chapters/00-preface.md`](chapters/00-preface.md)
 - **Purpose:** Set the reading contract in one page: what's live vs. designed, that nothing
   here is legal or investment advice, and that intellectual honesty (every hype line grounded
   or caveated) is the book's governing rule.
@@ -38,6 +39,7 @@ repeatable mechanism for raising compute instead of capital.
 ## PART I — Compute Is the New Capital
 
 ### Chapter 1 — The founder has changed
+- **Status:** draft written → [`chapters/01-the-founder-has-changed.md`](chapters/01-the-founder-has-changed.md)
 - **Purpose:** Establish the protagonist of the whole book — the solo open-source dev with an
   idea and a model API bill — and show why their needs don't match the machinery built for the
   old founder (team, office, 18-month runway, VC).
