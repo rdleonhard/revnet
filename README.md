@@ -1,4 +1,9 @@
 # revnet
+
+![Revnet in Venice — book cover](book/cover.png)
+
+*Cover for the book [Revnet in Venice](book/) — see [`book/`](book/).*
+
 This repo is meant as a dumping ground for my personal reflections on revnets. What immediately follows are some sample projects I'm working on to showcase variations of revnet designs. *Do not under any circumstances consider this document as giving legal advice and/or attorney approval.*
 
 **Proposals** (protocol-level, separate docs):
